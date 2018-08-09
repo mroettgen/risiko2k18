@@ -1,71 +1,140 @@
-\documentclass[fontsize=13pt,a4paper]{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-
-\usepackage[dvips]{graphicx}
-\usepackage{xcolor}
-
-\usepackage{tgadventor}
-
-\usepackage{setspace}
-\onehalfspacing
-
 \usepackage[german]{babel}
 
-\usepackage[
-breaklinks=true,colorlinks=true,
-linkcolor=black,urlcolor=black,citecolor=black,% PRINT
-bookmarks=true,bookmarksopenlevel=2]{hyperref}
+
+\usepackage{graphicx}
+
+%   Abbildungen müssen in einem Ordner "Abbildungen" liegen
+\graphicspath{ {Abbildungen/} }
+\usepackage{pdfpages}
+\usepackage{csquotes}
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\small\setstretch{.25}}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand\labelenumi{(\theenumi)}
+
+\usepackage[style=authoryear-icomp,maxcitenames=2,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+
+\usepackage{titlesec}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\usepackage{setspace}
+\usepackage{color}
+\definecolor{hgray}{gray}{0.5}
+
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+
+\usepackage[hidelinks,
+pdfpagelabels,
+pdfstartview = FitH,
+bookmarksopen = true,
+bookmarksnumbered = true,
+linkcolor = black,
+plainpages = false,
+hypertexnames = false,
+citecolor = black] {hyperref}
+
 
 \usepackage{geometry}
-\geometry{total={210mm,297mm},
-left=20mm,right=20mm,
-bindingoffset=10mm, top=25mm,bottom=25mm}
+\geometry{
+  left=2.5cm,
+  right=2.5cm,
+  top=2.5cm,
+  bottom=2cm,
+  bindingoffset=0mm
+}
 
+
+\makeatletter
+\title{Titel der Arbeit hier eintragen}\let\Title\@title     %   Titel der Arbeit eintragen
+\makeatother
+
+
+
+\usepackage{fancyhdr}
+\usepackage{afterpage}
+\fancypagestyle{MRstyle}{
+    \fancyhf{}
+    \fancyhead[L]{\textit{\textcolor{hgray}{\Title}}}
+    \fancyfoot[c]{\textcolor{hgray}{\thepage}}
+}
+
+\fancypagestyle{appendix}{
+    \fancyhf{}
+    \fancyhead[L]{\textit{\textcolor{hgray}{\Title}}}
+    \fancyhead[R]{\textcolor{hgray}{\rightmark}}
+    \fancyfoot[c]{\textcolor{hgray}{\thepage}}
+}
+
+\usepackage[hang]{footmisc}
+
+\newcommand\fakesection[1]{%
+    \markboth{#1}{#1}}
+
+\usepackage{parskip}
+\DefineBibliographyStrings{german}{
+   andothers = {{et\,al\adddot}},
+}
+
+
+% Das Dokument geht hier los:
 
 \begin{document}
-\thispagestyle{empty}
+\pagestyle{MRstyle}
 
-{%%%
- \centering
- \Large
+\setstretch{1.15}
 
- ~\vspace{\fill}
+\begin{titlepage}
 
- {\huge
-  Hausarbeit zum Seminar Risikokommunikation}
+    \large
+    RWTH Aachen\\
+    Institut für Sprach- und Kommunikationswissenschaft\\
+    Professur für Textlinguistik und Technikkommunikation\\
+    Prof. Dr. E.-M. Jakobs
 
- \vspace{2.5cm}
+    \vspace{5cm}
+    \Large
+    \doublespacing{
+        \textit{Hausarbeit zum Seminar Risikokommunikation\\}
+        \textbf{\Title}
+    }
 
- {\Large
-  Maximilian Röttgen
- }\\
- Matr. Nr. 332048\\
- {\Large
-  Martin Schmitz
-}\\
-Matr. Nr. 320669
+    \vspace{7cm}
+    \normalsize
+    \setstretch{1.2}
+    vorgelegt von:\\
+    Maximilian Röttgen (Mat.-Nr.: 332048)\\ % Hier Name, Matr. Nr. etc. einfügen
+    Martin Schmitz (Mat.-Nr.: 320669)\\
+    Joshua Olbrich (Mat.-Nr.: ??????)
 
- \vspace{3.5cm}
+    \vfill
 
- RWTH-Aachen University\\
- Professur für Textlinguistik und Technikkommunikation\\
- Institut für Sprach- und Kommunikationswissenschaft
+    Aachen, \today
+\afterpage{\cfoot{\textcolor{hgray}{\thepage}}}
 
- \vspace{3.5cm}
+\end{titlepage}
 
-\vspace{\fill}
-
-
- %%%
-}%%%
-\clearpage
 
 \pagenumbering{Roman}
+
 \tableofcontents
 \clearpage
+\pagenumbering{gobble}
+\section*{Zusammenfassung}
 
+\clearpage
 \pagenumbering{arabic}
+
 \section{Einleitung}
 
 \section{Literaturgestützte Einführung}
@@ -75,21 +144,46 @@ Matr. Nr. 320669
 
 \section{Ergebnisse}
 Im Folgenden werden die Ergebnisse der Studie vorgestellt. Da die Bewertung der Sicherheit vor den jeweilig persönlichen Hintergründen der Befragten zu betrachten sind, werden zunächst einige Vorinformationen über die Befragten betrachtet.
-\subsubsection*{Personendaten}
+\subsection*{Personendaten}
 Unter den sechs Befragten waren fünf Männer und eine Frau. Alle Befragten waren zwischen 23 und 29 Jahren alt, mit einem mittleren Alter von 25 Jahren, Median von 24 Jahren. Die Befragten hatten ihren Führerschein seit mindestens fünf Jahren. Der erfahrenste Fahrer war bereits 12 Jahre im Besitz der Fahrerlaubnis.
 
-Die Hälfte der Befragten war zum Zeitpunkt der Erhebung im Besitz eines eigenen PKW, die anderen 38 \% nutzten geteilte Fahrzeuge, z.\,B. der Eltern oder Car-Sharing Angebote. 
+Die Hälfte der Befragten war zum Zeitpunkt der Erhebung im Besitz eines eigenen PKW, die anderen 38\,\% nutzten geteilte Fahrzeuge, z.\,B. der Eltern oder Car-Sharing Angebote.
 
+Familienstand und Einkommen wurden nicht erhoben, die Mehrzahl der Befragten ist jedoch als Student tätig.
 
+\subsection*{Vorannahmen der Befragten}
+Einige Äußerungen der Kandidaten ließen auf Vorannahmen bezüglich autonomem und unterstütztem Fahren schließen. Im Folgenden sind diese Vorannahmen aufgelistet und erläutert.
+\subsubsection*{Berichterstattung in der Presse}
+Ein Befragter äußerte, dass er von einer negativen Färbung der Berichterstattung in den Medien über das Thema autonomes/assistiertes Fahren ausgeht.
+\begin{quote}
+    Meistens kommt ja auch nur das Negative dann in die Presse und nicht das Auto fährt jetzt seit 100.000 Km autonom erfolgreich. Nein, da kommt was, wenn es einen übergebretzelt hat. (B04, Z. 113)
+\end{quote}
 \section{Diskussion}
 
 \section{Methodenreflexion}
 
 \section{Fazit}
 
+\clearpage
+\pagenumbering{Roman}
 
+\clearpage
+\appendix
+\pagestyle{appendix}
 
+\label{att:Anhang1}
+\fakesection{Anhang1}
+% \includepdf[pages={1},scale=0.9,pagecommand={\section{Anhang}}]{}
 
+\section{Literaturverzeichnis}
+\pagestyle{MRstyle}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\printbibliography
+\pagebreak
 
+\pagestyle{plain}
+\pagenumbering{gobble}
+%\includepdf[pagecommand={}]{Eidesstattliche_Versicherung.pdf}
 
 \end{document}
