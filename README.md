@@ -2,8 +2,10 @@
 Hier entsteht in Zukunft eine wundervolle Hausarbeit.
 
 ## Wichtige Befehle
-Kapitel: `\subsection{Kapitelüberschrift}`
+Kapitel: `\section{Kapitelüberschrift}`
 
-Kapitel, die nicht im Inhaltsverzeichnis auftauchen: `\subsection*{Kapitelüberschrift}`
+Unterkapitel: `\subsection{Kapitelüberschrift}`
+
+Kapitel, die nicht im Inhaltsverzeichnis auftauchen: `\section*{Kapitelüberschrift}`
 
 Non-breaking small space: `\,`
