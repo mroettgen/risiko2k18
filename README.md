@@ -2,6 +2,7 @@
 Hier entsteht in Zukunft eine wundervolle Hausarbeit.
 
 ## Konventionen
+Joshs komische Dinger zitieren wir mit `m = B05` und `w = B06`
 Mehrzeilige Zitate: `\begin{quote} ... \end{quote}`
 Referenz für Quellen: `(B04, Z. 123)` innerhalb des Quote-Blocks
 
