@@ -1,6 +1,6 @@
 sudo: required
-dist: trusty
-before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
+services: docker
 script:
-- pdflatex -interaction=nonstopmode -halt-on-error *.tex
+  # We use the docker image from https://hub.docker.com/r/rekka/tectonic/
+  - docker pull rekka/tectonic
+  - docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind rekka/tectonic tectonic main.tex
