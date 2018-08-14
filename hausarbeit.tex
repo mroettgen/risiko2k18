@@ -18,13 +18,18 @@
 \renewcommand{\familydefault}{\sfdefault}
 \renewcommand\labelenumi{(\theenumi)}
 
-\usepackage[style=authoryear-icomp,maxcitenames=2,backend=biber]{biblatex}
+\usepackage[style=apa, maxcitenames=2, citestyle=authoryear, backend=biber]{biblatex}
 \addbibresource{bibliography.bib}
+
+\DeclareNameAlias{sortname}{last-first}
+\DeclareNameAlias{default}{last-first}
 
 \usepackage{titlesec}
 \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\usepackage{booktabs}
 
 \usepackage{setspace}
 \usepackage{color}
@@ -138,7 +143,7 @@ citecolor = black] {hyperref}
 \section{Einleitung}
 
 \clearpage
-\section{Literaturgestützte Einführung}
+\include{literatur}
 
 \clearpage
 \section{Methodik}
