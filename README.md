@@ -19,7 +19,7 @@ Non-breaking small space: `\,`
 
 Grafiken einfügen:
 
-```
+``` TeX
 \begin{figure}[htp]
     \centering
     \includegraphics[width=13cm]{die_grafik.png}
