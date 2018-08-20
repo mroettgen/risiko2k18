@@ -16,3 +16,14 @@ Unterkapitel: `\subsection{Kapitelüberschrift}`
 Kapitel, die nicht im Inhaltsverzeichnis auftauchen: `\section*{Kapitelüberschrift}`
 
 Non-breaking small space: `\,`
+
+Grafiken einfügen:
+
+```
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=13cm]{die_grafik.png}
+    \caption{Bildunterschrift hier einfügen}
+    \label{referenz-auf-bild}
+\end{figure}
+```
