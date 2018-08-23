@@ -18,6 +18,9 @@
 \renewcommand{\familydefault}{\sfdefault}
 \renewcommand\labelenumi{(\theenumi)}
 
+\newcommand\fakesection[1]{%
+  \markboth{#1}{#1}}
+
 \usepackage[style=apa, maxcitenames=2, citestyle=authoryear, backend=biber]{biblatex}
 \addbibresource{bibliography.bib}
 
@@ -64,8 +67,6 @@
 \title{Aspekte der Wahrnehmung von Sicherheit bei der Fahrer-Fahrzeug-Interaktion}\let\Title\@title     %   Titel der Arbeit eintragen
 \makeatother
 
-
-
 \usepackage{fancyhdr}
 \usepackage{afterpage}
 \fancypagestyle{MRstyle}{
@@ -76,15 +77,12 @@
 
 \fancypagestyle{appendix}{
   \fancyhf{}
-  \fancyhead[L]{\textit{\textcolor{hgray}{\Title}}}
+  \fancyhead[L]{\textit{\textcolor{hgray}{Anhang}}}
   \fancyhead[R]{\textcolor{hgray}{\rightmark}}
   \fancyfoot[c]{\textcolor{hgray}{\thepage}}
 }
 
 \usepackage[hang]{footmisc}
-
-\newcommand\fakesection[1]{%
-  \markboth{#1}{#1}}
 
 \usepackage{parskip}
 \DefineBibliographyStrings{german}{
@@ -135,9 +133,10 @@
 \tableofcontents
 \clearpage
 \pagenumbering{gobble}
-\section*{Zusammenfassung}
 
+\listoffigures
 \clearpage
+
 \pagenumbering{arabic}
 
 \include{einleitung}
@@ -269,7 +268,7 @@ Das Kategoriensystem nach der Webanalyse sieht wie folgt aus:
 
 Um im Interview differenzierte Aussagen zu gewinnen, wurden diese Oberkategorien als inhaltlicher Überbau übernommen und textuell angepasst. Der finale Stand der Kategorien sah nach dem ersten deduktiven Schritt wie folgt aus: \emph{Anforderungen},  \emph{Gefahren und Probleme}, \emph{Vertrauen}, \emph{Vorannahmen}, \emph{Informiertheit}, \emph{Fahraufgaben behalten/abgeben}, \emph{Kriterien eines guten Beifahrers} und \emph{Überforderung} sowie \emph{Erfahrung}. Um diese Kategorien bildeten sich die Rahmenfragen des Interviewleitfadens. Zum Vergleich wurde für die Interviewstudie noch die etablierte Technologie von Fahrassistensysteme dazu genommen. Dadurch sollten Unterschiede zwischen einer bereits etablierten Technologie und einer, die aktuell die Gesellschaft verändert, beleuchtet werden können.
 
- %TODO: ich verstehe den letzten Satz nicht wirklich. Kann Josh da noch einmal drüber gehen?
+%TODO: ich verstehe den letzten Satz nicht wirklich. Kann Josh da noch einmal drüber gehen?
 
 Insgesamt sind 223 Kommentare aus den Interviews extrahiert worden und bilden den Korpus des Kategoriensystems. Die gesamelten Kommentare sind analysiert und den passenden Kategorien zugeordnet worden. Falls Kommentare nicht in eine bestehende Kategorie passten, wurde induktiv eine weiter Kategorie gebildet. War es möglich mehrere Kommentare unter einer Unterkategorie zusammenfassen, wurde auch diese Kategorie induktiv aus dem Material gebildet und einer bestehenden Oberkategorie zugeordnet. In weiterern Analyseiterationen wurde geprüft, ob sich die einzelen Kommentare überscheidungsfrei den Kategorien zuordnen lassen. Eine beispielhafte Oberkategorie mit Unterkategorie und entsprechenden Ankerbeispiel sieht wie folgt aus:
 
@@ -298,13 +297,6 @@ Das finale System aus Oberkategorien sieht wie folgt aus:
 \clearpage
 \section{Ergebnisse}
 Im Folgenden werden die Ergebnisse der Studie vorgestellt. Da die Bewertung der Sicherheit vor den jeweilig persönlichen Hintergründen der Befragten zu betrachten sind, werden zunächst einige Vorinformationen über die Befragten betrachtet.
-
-% \subsection*{Personendaten}
-% Unter den sechs Befragten waren fünf Männer und eine Frau. Alle Befragten waren zwischen 23 und 29 Jahren alt, mit einem mittleren Alter von 25 Jahren, Median von 24 Jahren. Die Befragten hatten ihren Führerschein seit mindestens fünf Jahren. Der erfahrenste Fahrer war bereits 12 Jahre im Besitz der Fahrerlaubnis.
-%
-% Die Hälfte der Befragten war zum Zeitpunkt der Erhebung im Besitz eines eigenen PKW, die anderen 38\,\% nutzten geteilte Fahrzeuge, z.\,B. der Eltern oder Car-Sharing Angebote.
-%
-% Familienstand und Einkommen wurden nicht erhoben, die Mehrzahl der Befragten ist jedoch als Student tätig.
 
 \subsection{Kenntnisstand der Befragten}
 Der Wissensstand der Befragten zum Thema Fahrassistenzsysteme und autonomes Fahren war zum Zeitpunkt der Befragung gemischt. Auch, wenn die Mehrheit der Befragten selbst noch keine praktische Erfahrung mit entsprechenden Systemen gemacht hat, waren die Befragten durch die Presse (B03, Z. 98; B04, Z. 113) und durch allgemeines Vorwissen (B01, Z. 74ff) zumindest grundsätzlich über das Thema informiert.
@@ -733,12 +725,16 @@ Ebenfalls besteht Potenzial zur Verbesserung der Validität. Die im Interviewlei
 \appendix
 \pagestyle{appendix}
 
-\label{att:Anhang1}
-\fakesection{Anhang1}
-% \includepdf[pages={1},scale=0.9,pagecommand={\section{Anhang}}]{}
+\label{att:Interviewleitfaden}
+\fakesection{Interviewleitfaden}
+\includepdf[pages={1},scale=0.9,pagecommand={\section{Anhang}}]{Interviewleitfaden_final.pdf}
+\fakesection{Interviewleitfaden}
+\includepdf[pages={2},scale=0.9,pagecommand={}]{Interviewleitfaden_final.pdf}
+\clearpage
 
+\fakesection{Literaturverzeichnis}
 \section{Literaturverzeichnis}
-\pagestyle{MRstyle}
+\pagestyle{appendix}
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000}
 \printbibliography
@@ -746,8 +742,8 @@ Ebenfalls besteht Potenzial zur Verbesserung der Validität. Die im Interviewlei
 
 \pagestyle{plain}
 \pagenumbering{gobble}
-%\includepdf[pagecommand={}]{Eidesstattliche_Versicherung.pdf}
+\includepdf[pagecommand={}]{Eidesstatt_Martin.pdf}
+\includepdf[pagecommand={}]{Eidesstatt_Max.pdf}
 
 \include{aufgabenteilung}
-\includepdf{Eidesstatt_Martin.pdf}
 \end{document}
