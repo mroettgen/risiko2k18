@@ -1,5 +1,5 @@
 # risiko2k18 [![Build Status](https://travis-ci.org/mroettgen/risiko2k18.svg?branch=master)](https://travis-ci.org/mroettgen/risiko2k18)
-Hier entsteht in Zukunft eine wundervolle Hausarbeit.
+Hier entstand in der Vergangenheit eine wundervolle Hausarbeit.
 
 ## Konventionen
 Joshs komische Dinger zitieren wir mit `m = B05` und `w = B06`
